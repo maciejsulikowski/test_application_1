@@ -43,16 +43,20 @@ class _RandomColorScreenState extends State<RandomColorScreen> {
       /// We limit it to 16,777,216 because it's the total number of RGB color
       /// combinations (256 * 256 * 256)
       final int randomNumber = DateTime.now().microsecondsSinceEpoch % 16777216;
+
       /// Extract the red component (first 8 bits)
       final int r = (randomNumber >> 16) & 0xFF;
+
       /// Extract the green component (next 8 bits)
       final int g = (randomNumber >> 8) & 0xFF;
+
       /// Extract the blue component (last 8 bits)
       final int b = randomNumber & 0xFF;
       // Combine the red, green, and blue values to create a new color
       currentColor = Color.fromRGBO(r, g, b, 1);
     });
   }
+
   /// Show the screen and user can click to change the color and maybe text
   /// to see this text
   @override
@@ -88,6 +92,7 @@ class TextWidget extends StatelessWidget {
 
   /// Color from text
   final Color textColor;
+
   /// Displaying text here
   @override
   Widget build(BuildContext context) {
